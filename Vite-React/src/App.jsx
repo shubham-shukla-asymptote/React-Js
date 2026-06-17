@@ -1,9 +1,9 @@
 function App() {
-  
+  let username="shubham Shukla"
 
   return (
     <h1>
-      React with devlopment tool Vite | Shubham Shukla
+      React with devlopment tool Vite | {username}
     </h1>
   )
 }
