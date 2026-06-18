@@ -1,10 +1,18 @@
 function App() {
   let username="shubham Shukla"
+  function HandleClicked(){
+    setCount(count+1);
+    alert('you clicked me !')
+
+  }
+  function MyButton(){
+    const [set, setCount]=useState(0)
+  }
 
   return (
-    <h1>
-      React with devlopment tool Vite | {username}
-    </h1>
+    <button type="button" onclick={handleClicked}>
+      CLick  {count} times
+    </button>
   )
 }
 

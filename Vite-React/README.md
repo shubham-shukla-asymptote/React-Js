@@ -32,7 +32,7 @@ const reactEl = (
 );
 ```
 - browser can't understand JSX 
-- babel converts  JSX into javascript object
+- babel converts  JSX into javascript 
 - for example with reference of above example
 ```javascript
 const reactEl = React.createElement(
@@ -65,3 +65,55 @@ ReactDOM.createRoot(root).render(reactEl);
 
 ## Diffing 
 - when any update occur react update  by diffing not destroy and again create
+
+
+## hooks 
+- Hooks are functions that let you "hook into" React state and lifecycle features from functional components.
+- example 
+  - useState
+  - useEffect
+  - useRef
+  - useReducer
+
+
+  ## FIBRE AND reconciliation
+- Fiber is React's internal algorithm that decides what parts of the UI need to be updated and when they should be updated.
+- Before Fiber, React processed the entire component tree in one go. If the tree was large, it could block the browser and make the UI feel slow or unresponsive.
+
+  ### benefits of fibre
+- Breaking Work into Smaller Chunks
+- Priority-Based Updates
+     - User typing highest priority
+     - large File or list renderning low priority
+- concurrent rendering:React can keep the typing experience smooth while performing heavy rendering work in the background.
+
+
+  ### Fibre node
+- Every component in a React application is represented by a Fiber object.
+
+### Reconciliation
+- The algorithm React uses to diff one tree with another to determine which parts need to be changed.
+### Rendering Process in Fiber
+- Render Phase
+     - compare the old and new virtual dom 
+     - calculate the required changes
+     - can be paused resumed or intruppeted
+- Commit Phase
+     - applies the caluclated changes to real dom
+     - cannot be intruppted
+### some key points
+- In a UI, it's not necessary for every update to be applied immediately; in fact, doing so can be wasteful, causing frames to drop and degrading the user experience.
+- Different types of updates have different priorities — an animation update needs to complete more quickly than, say, an update from a data store.
+- A push-based approach requires the app (you, the programmer) to decide how to schedule work. A pull-based approach allows the framework (React) to be smart and make those decisions for you.
+
+## state change-->rendor Phase-->calculate changes-->commit phase-->Dom update
+
+
+
+## Diffing 
+- when any update occur react update  by diffing not destroy and again create
+- Different component types are assumed to generate substantially different trees. React will not attempt to diff them, but rather replace the old tree completely.
+- Diffing of lists is performed using keys. Keys should be "stable, predictable, and unique." 
+- In React, keys are used to help React identify which items in a list have changed, been added, or been removed.
+
+### [Documentation About Fibre](https://github.com/acdlite/react-fiber-architecture)
