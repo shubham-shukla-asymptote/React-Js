@@ -24,6 +24,10 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  align-items: center;
+ justify-content: center;
+ gap:5px;
 
   @media (max-width: 1024px) {
     font-size: 16px;
@@ -108,4 +112,16 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+button{
+  height: 30px;
+  width: fit-content;
+gap:5px;
+}
+div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:5px;
+  flex-direction: column;
 }
