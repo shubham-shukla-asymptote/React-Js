@@ -1,16 +1,30 @@
-# React + Vite
+## interview question
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+you have AddValue() in your counter project given below
+``` javascript
+function AddValue() {
+    if(count==20) return;
+    setCount(count + 1)
+    setCount(count + 1)
+    setCount(count + 1)
+    setCount(count + 1)
+  }
+  // if we write multiple setCount(count+1) then what happen
+  // are there increment 4 on one click 
+  // Ans:No
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+  
+``` 
+- beacause Fibre send batch of updation in UI 
+- these all do the same job and they send in one packeges so that one cvalue increment at once 
+- setCount is a function which accept a callback value  which is previous value 
+- if we want to increment  4 on one click then we have to write it as 
+```javascript
+function AddValue() {
+    if(count==20) return;
+    setCount((prevCount)=>prevCount+1) // now when this call and accept prevCount then next accept prevCount when this patch send by fibre 
+    setCount((prevCount)=>prevCount+1)
+    setCount((prevCount)=>prevCount+1)
+    setCount((prevCount)=>prevCount+1)
+  }
+```  
