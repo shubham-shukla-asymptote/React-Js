@@ -13,22 +13,17 @@ function App() {
   const options = Object.keys(currencyInfo)
 
   const swap = () => {
-    const temp = from   /// safer state change is asynchronous in react
+    const temp=from   /// safer state change is asynchronous in react
     setFrom(to)
     setTo(temp)
-    let prevConvertedAmount = convertedAmount;    // 2nd  bug yahan tha 
+    let prevConvertedAmount=convertedAmount;
     setConvertedAmount(amount)
     setAmount(prevConvertedAmount)
   }
-   const convert = () => {
-      if (currencyInfo[to]) {
-        setConvertedAmount(amount * currencyInfo[to])
-      }
-    }
 
-  useEffect(() => {
-     convert()
-  }, [amount, from, to, currencyInfo])
+  const convert = () => {
+    setConvertedAmount(amount * currencyInfo[to])
+  }
   return (
     <>
       <div
@@ -51,7 +46,7 @@ function App() {
                   label="From"
                   amount={amount}
                   currencyOptions={options}
-
+                 
                   onCurrencyChange={(currency) => (setFrom(currency))}
                   onAmountchange={(amount) => setAmount(amount)}
                   selectCurrency={from}
@@ -75,7 +70,7 @@ function App() {
                   currencyOptions={options}
                   onCurrencyChange={(currency) => (setTo(currency))}
                   onAmountchange={(amount) => setAmount(amount)}
-                  selectCurrency={to}  /// one bug is from here
+                  selectCurrency={to}
                   amountDisable
 
                 />
