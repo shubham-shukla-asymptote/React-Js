@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+
+ @custom-variant dark (&:where(.dark, .dark *)); 
+ /*
+ Agar tum Tailwind CSS v4 use kar rahe ho
+  @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));*/
