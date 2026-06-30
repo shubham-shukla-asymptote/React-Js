@@ -53,3 +53,17 @@ function card({title}){
 
 ### Babel
 - Converts modern JS to browser-compatible JS
+
+## redux
+- it is a state management library
+- Redux is a predictable state container for JavaScript applications, often used with libraries like React, Angular, or Vue to manage complex application state in a centralized and maintainable way.
+-  It ensures that the state of your app behaves consistently, is easy to debug, and can be reproduced by replaying the same sequence of actions.
+- if you want to use redux in react then you also need react-redux which linked react and redux
+
+### At its core, Redux follows three fundamental principles
+ - Single Source of Truth:The entire application state is stored in a single object tree inside one store.
+ - State is Read-Only:The only way to change the state is by dispatching actions, which are plain JavaScript objects describing what happened.
+ - what happened.
+
+-Changes via Pure Reducers – Reducers are pure functions that take the current state and an action, then return a new state without mutating the original.
+
